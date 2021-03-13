@@ -10,10 +10,16 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import MiniCard from "../components/MiniCard";
+import Constant from "expo-constants";
+import { useSelector, useDispatch } from "react-redux";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [value, setValue] = useState("");
-  const [miniCardData, setMiniCardData] = useState([]);
+
+  const dispatch = useDispatch();
+  const miniCardData = useSelector(state => {
+    return state;
+  });
   const [loading, setLoading] = useState(false);
 
   const fetchData = () => {
@@ -24,13 +30,15 @@ const SearchScreen = () => {
       .then(res => res.json())
       .then(data => {
         setLoading(false);
-        setMiniCardData(data.items);
+        dispatch({ type: "add", payload: data.items });
       })
-      .catch();
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, marginTop: Constant.statusBarHeight }}>
       <View
         style={{
           padding: 5,
@@ -40,7 +48,7 @@ const SearchScreen = () => {
           backgroundColor: "white",
         }}
       >
-        <Ionicons name="md-arrow-back" size={32} />
+        <Ionicons name="md-arrow-back" size={32} onPress={() => navigation.goBack()} />
         <TextInput
           style={{ width: "70%", backgroundColor: "#e6e6e6" }}
           value={value}
