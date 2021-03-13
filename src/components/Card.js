@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const Card = props => {
   const navigation = useNavigation();
+  const { colors } = useTheme();
+  const textcolor = colors.iconColor;
   return (
     <TouchableOpacity
       onPress={() =>
@@ -22,13 +24,13 @@ const Card = props => {
           <MaterialIcons name="account-circle" size={40} color="#212121" />
           <View style={{ marginLeft: 10 }}>
             <Text
-              style={{ fontSize: 20, width: Dimensions.get("screen").width - 50 }}
+              style={{ fontSize: 20, width: Dimensions.get("screen").width - 50, color: textcolor }}
               ellipsizeMode="tail"
               numberOfLines={2}
             >
               {props.title}
             </Text>
-            <Text>{props.channel}</Text>
+            <Text style={{ color: textcolor }}>{props.channel}</Text>
           </View>
         </View>
       </View>

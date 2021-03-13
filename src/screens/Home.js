@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const HomeScreen = () => {
   const cardData = useSelector(state => {
-    return state;
+    return state.cardData;
   });
   return (
     <View style={{ flex: 1 }}>
@@ -24,13 +24,6 @@ const HomeScreen = () => {
         }}
         keyExtractor={item => item.id.videoId}
       />
-      {/* <ScrollView>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </ScrollView> */}
     </View>
   );
 };

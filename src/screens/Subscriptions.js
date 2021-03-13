@@ -2,13 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Header from "../components/Header";
 
-const Subscribe = () => {
+const Subscriptions = () => {
   return (
     <View style={{ flex: 1 }}>
       <Header />
-      <Text>Subscribe</Text>
+      <Text>Subscriptions</Text>
     </View>
   );
 };
 
-export default Subscribe;
+export default Subscriptions;
