@@ -19,7 +19,7 @@ const Header = () => {
       <View style={{ flexDirection: "row", margin: 5 }}>
         <AntDesign style={{ marginLeft: 20 }} name="youtube" size={32} color="red" />
         <Text style={{ fontSize: 22, marginLeft: 5, fontWeight: "bold", color: mycolor }}>
-          Youtube
+          YouTube
         </Text>
       </View>
       <View style={{ flexDirection: "row", justifyContent: "space-around", width: 150, margin: 4 }}>
