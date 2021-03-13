@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import MiniCard from "../components/MiniCard";
 
 const SearchScreen = () => {
   const [value, setValue] = useState("");
@@ -20,9 +21,26 @@ const SearchScreen = () => {
           style={{ width: "70%", backgroundColor: "#e6e6e6" }}
           value={value}
           onChange={text => setValue(text)}
+          placeholder="Search YouTube"
         />
         <Ionicons name="md-send" size={32} />
       </View>
+      <ScrollView>
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+        <MiniCard />
+      </ScrollView>
     </View>
   );
 };
