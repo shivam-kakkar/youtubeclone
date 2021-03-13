@@ -21,7 +21,7 @@ const Card = props => {
           style={{ width: "100%", height: 200 }}
         />
         <View style={{ flexDirection: "row", margin: 5 }}>
-          <MaterialIcons name="account-circle" size={40} color="#212121" />
+          <MaterialIcons name="account-circle" size={40} color={textcolor} />
           <View style={{ marginLeft: 10 }}>
             <Text
               style={{ fontSize: 20, width: Dimensions.get("screen").width - 50, color: textcolor }}
