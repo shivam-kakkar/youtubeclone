@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { Text, View, Dimensions } from "react-native";
 import { WebView } from "react-native-webview";
 import Constant from "expo-constants";
 import { useTheme } from "@react-navigation/native";

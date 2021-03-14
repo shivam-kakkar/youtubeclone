@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ScrollView,
-  FlatList,
-  ActivityIndicator,
-} from "react-native";
+import { View, TextInput, FlatList, ActivityIndicator } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import MiniCard from "../components/MiniCard";
@@ -28,7 +20,7 @@ const SearchScreen = ({ navigation }) => {
   const fetchData = () => {
     setLoading(true);
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${value}&type=video&key=AIzaSyAfNbNTkw9oES8fzZUtFSbrjWaiTIqGdVc`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${value}&type=video&key=[YOUR_API_KEY]`
     )
       .then(res => res.json())
       .then(data => {

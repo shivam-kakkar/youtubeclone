@@ -1,29 +1,33 @@
-import React from "react";
-import { StyleSheet, Text, View, ScrollView, FlatList } from "react-native";
+import React, { useEffect } from "react";
+import { View } from "react-native";
 import Header from "../components/Header";
-import Card from "../components/Card";
-import { useSelector } from "react-redux";
+import PopularVideosList from "../components/PopularVideosList";
+import { useDispatch } from "react-redux";
 
 const HomeScreen = () => {
-  const cardData = useSelector(state => {
-    return state.cardData;
-  });
+  const dispatch = useDispatch();
+
+  const fetchData = () => {
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=10&regionCode=IN&key=[YOUR_API_KEY]`
+    )
+      .then(res => res.json())
+      .then(data => {
+        dispatch({ type: "HOME_VIDEOS", payload: data.items });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <View style={{ flex: 1 }}>
       <Header />
-      <FlatList
-        data={cardData}
-        renderItem={({ item }) => {
-          return (
-            <Card
-              videoId={item.id.videoId}
-              title={item.snippet.title}
-              channel={item.snippet.channelTitle}
-            />
-          );
-        }}
-        keyExtractor={item => item.id.videoId}
-      />
+      <PopularVideosList />
     </View>
   );
 };
